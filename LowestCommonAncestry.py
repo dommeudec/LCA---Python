@@ -38,7 +38,11 @@ def findPath( root, path, k):
 # binary tre otherwise return -1
 def findLCA(root, n1, n2):
 
-    # To store paths to n1 and n2 fromthe root
+    # Return -1 if n1 or n1 is negative
+    if n1 < 0 | n2 < 0:
+        return -1
+
+    # To store paths to n1 and n2 from the root
     path1 = []
     path2 = []
 
@@ -56,8 +60,7 @@ def findLCA(root, n1, n2):
     return path1[i-1]
 
 
-# Driver program to test above function
-# Let's create the Binary Tree shown in above diagram
+# Binary Tree for testing
 root = Node(1)
 root.left = Node(2)
 root.right = Node(3)
@@ -68,11 +71,3 @@ root.right.right = Node(7)
 root.left.left.left = Node(8)
 root.left.left.left.left = Node(9)
 root.left.left.left.right = Node(10)
-
-print("LCA(4, 5) = %d" %(findLCA(root, 4, 5)))
-print("LCA(4, 6) = %d" %(findLCA(root, 4, 6)))
-print("LCA(3, 4) = %d" %(findLCA(root,3,4)))
-print("LCA(2, 4) = %d" %(findLCA(root,2, 4)))
-print("LCA(9, 10) = %d" %(findLCA(root,9, 10)))
-print("LCA(5, 10) = %d" %(findLCA(root,5, 10)))
-print("LCA(2, 11) = %d" %(findLCA(root,2, 11)))
